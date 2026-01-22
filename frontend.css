@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    margin: 15px 0;
+    font-size: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 15px;
+}
+
+.drink {
+    position: relative;
+    cursor: pointer;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.drink .title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.drink img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.drink span {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 8px 0;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.drink:hover img {
+    transform: scale(1.08);
+}
+
+.drink:hover span {
+    opacity: 1;
+}
+
+#status {
+    margin: 15px;
+    font-size: 1.1rem;
+    color: #cccccc;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .drink img {
+        height: 160px;
+    }
+}
+
+/* MOBIL */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .drink img {
+        height: 140px;
+    }
+    .drink span {
+        font-size: 0.95rem;
+    }
+    .drink .title {
+        font-size: 0.95rem;
+    }
+}
