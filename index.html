@@ -79,18 +79,28 @@
 <script>
 function sendDrink(number) {
     document.getElementById("status").innerText =
-        "SIMULÁCIA: vybraný drink číslo " + number;
+        "Vybraný drink číslo " + number;
 
-    console.log("SIMULÁCIA → odoslané číslo:", number);
+    console.log("Odoslane cislo:", number);
 
-    // KEĎ BUDE ESP32 HOTOVÉ, ODKOMENTUJ:
-    /*
+    // POSIELANIE NA ESP32
     fetch("http://192.168.4.1/drink", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ drink: number })
+    })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById("status").innerText += " → ESP32 prijal číslo";
+        } else {
+            document.getElementById("status").innerText += " → chyba pri odosielaní";
+        }
+    })
+    .catch(err => {
+        document.getElementById("status").innerText += " → ESP32 nie je pripojené";
+        console.error(err);
     });
-    */
+
 }
 </script>
 
